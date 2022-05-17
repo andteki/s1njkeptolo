@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
     JPanel mainPanel;
-    JButton[] buttons;
+    public JButton[] buttons;
     ImageIcon[] imageIcons;
     String[] imageNames = {
         "kep01.png",
