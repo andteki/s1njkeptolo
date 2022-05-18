@@ -1,7 +1,5 @@
 package views;
 
-import java.awt.FlowLayout;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,8 +26,8 @@ public class MainFrame extends JFrame {
         "kep14.png",
         "kep15.png",
     };
-    public final int IMAGE_WIDTH=250;
-    public final int IMAGE_HEIGHT=250;
+    public final int IMAGE_WIDTH=50;
+    public final int IMAGE_HEIGHT=50;
     public MainFrame() {
         this.setMainComponent();
         this.setMainPanel();

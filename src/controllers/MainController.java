@@ -27,21 +27,16 @@ public class MainController {
     private void setEvents() {
         for(int i=0; i<15; i++) {
             buttons[i].addActionListener(event->onClickButtons(event));
-        }
-        
+        }        
     }
-    private void onClickButtons(ActionEvent event) {
-        
+    private void onClickButtons(ActionEvent event) {        
         JButton button = (JButton) event.getSource();
-
         checkDirection(button);
     }
     private void checkDirection(JButton button) {
-        //jobbra?
         int x = button.getLocation().x;
         int y = button.getLocation().y;
-        System.out.println(x + " " + y);
-        Action action = Action.NO;
+         Action action = Action.NO;
         if(x< IMAGE_WIDTH*3 && checkRight(x, y)) {
             action = Action.RIGHT;
         }
@@ -54,9 +49,6 @@ public class MainController {
         if(y > 0 && checkUp(x, y)) {
             action = Action.UP;
         }
-
-        System.out.println(action);
-
         moveImage(action, button);
     }
     private boolean checkRight(int act_x, int act_y) {
