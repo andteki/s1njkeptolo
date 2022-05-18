@@ -1,5 +1,7 @@
 package views;
 
+import java.awt.Point;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,6 +30,25 @@ public class MainFrame extends JFrame {
     };
     public final int IMAGE_WIDTH=50;
     public final int IMAGE_HEIGHT=50;
+
+    Point[] basePosition = {
+        new Point(0, 0),
+        new Point(IMAGE_WIDTH, 0),
+        new Point(IMAGE_WIDTH*2, 0),
+        new Point(IMAGE_WIDTH*3, 0),
+        new Point(0, IMAGE_HEIGHT),
+        new Point(IMAGE_WIDTH, IMAGE_HEIGHT),
+        new Point(IMAGE_WIDTH*2, IMAGE_HEIGHT),
+        new Point(IMAGE_WIDTH*3, IMAGE_HEIGHT),
+        new Point(0, IMAGE_HEIGHT*2),
+        new Point(IMAGE_WIDTH, IMAGE_HEIGHT*2),
+        new Point(IMAGE_WIDTH*2, IMAGE_HEIGHT*2),
+        new Point(IMAGE_WIDTH*3, IMAGE_HEIGHT*2),
+        new Point(0, IMAGE_HEIGHT*3),
+        new Point(IMAGE_WIDTH, IMAGE_HEIGHT*3),
+        new Point(IMAGE_WIDTH*2, IMAGE_HEIGHT*3)
+    };    
+
     public MainFrame() {
         this.setMainComponent();
         this.setMainPanel();
