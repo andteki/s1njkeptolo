@@ -1,5 +1,6 @@
 package views;
 
+import java.awt.Image;
 import java.awt.Point;
 
 import javax.swing.ImageIcon;
@@ -28,8 +29,8 @@ public class MainFrame extends JFrame {
         "kep14.png",
         "kep15.png",
     };
-    public final int IMAGE_WIDTH=50;
-    public final int IMAGE_HEIGHT=50;
+    public final int IMAGE_WIDTH=100;
+    public final int IMAGE_HEIGHT=100;
 
     Point[] basePosition = {
         new Point(0, 0),
@@ -61,41 +62,33 @@ public class MainFrame extends JFrame {
         }        
 
         buttons = new JButton[15];
-        for(int i=0;i<15; i++) {
-            buttons[i] = new JButton(imageIcons[i]);
+        for(int i=0;i<15; i++) {            
+            ImageIcon imageIcon = resizeImageIcon(imageIcons[i], IMAGE_WIDTH, IMAGE_HEIGHT);
+            buttons[i] = new JButton(imageIcon);
+            buttons[i].setLocation(basePosition[i]);
+            buttons[i].setSize(IMAGE_WIDTH, IMAGE_HEIGHT);
         }
-        setBasePos();
-    }
-    private void setBasePos() {
-        buttons[0].setBounds(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[1].setBounds(250, 0, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[2].setBounds(500, 0, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[3].setBounds(750, 0, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[4].setBounds(0, 250, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[5].setBounds(250, 250, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[6].setBounds(500, 250, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[7].setBounds(750, 250, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[8].setBounds(0, 500, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[9].setBounds(250, 500, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[10].setBounds(500, 500, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[11].setBounds(750, 500, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[12].setBounds(0, 750, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[13].setBounds(250, 750, IMAGE_WIDTH, IMAGE_HEIGHT);
-        buttons[14].setBounds(500, 750, IMAGE_WIDTH, IMAGE_HEIGHT);
     }
     private void setMainPanel() {
         this.mainPanel = new JPanel();
-        this.mainPanel.setBounds(10, 10, 1020, 1020);
+        this.mainPanel.setBounds(10, 10, IMAGE_WIDTH*4+20, IMAGE_HEIGHT*4+50);
         this.mainPanel.setLayout(null);
         for(int i=0;i<15; i++) {
             this.mainPanel.add(this.buttons[i]);
         }
     }
     private void setMainFrame() {
+        this.setJMenuBar(new ImeMenuBar());
         this.add(this.mainPanel);
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1020, 1050);
+        this.setSize(IMAGE_WIDTH*4+24, IMAGE_HEIGHT*4+70);
         this.setVisible(true);
+    }
+    private ImageIcon resizeImageIcon(ImageIcon origImageIcon, int width, int height) {
+        Image image = origImageIcon.getImage();
+        Image newImage = image.getScaledInstance(width, height, Image.SCALE_DEFAULT);
+        ImageIcon imageIcon = new ImageIcon(newImage);
+        return imageIcon;
     }
 }

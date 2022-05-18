@@ -23,6 +23,7 @@ public class MainController {
         this.IMAGE_WIDTH = this.mainFrame.IMAGE_WIDTH;
         this.IMAGE_HEIGHT = this.mainFrame.IMAGE_HEIGHT;
         this.setEvents();
+        new MenuController(mainFrame);
     }
     private void setEvents() {
         for(int i=0; i<15; i++) {
