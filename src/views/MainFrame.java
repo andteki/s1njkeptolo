@@ -28,8 +28,8 @@ public class MainFrame extends JFrame {
         "kep14.png",
         "kep15.png",
     };
-    final int IMAGE_WIDTH=250;
-    final int IMAGE_HEIGHT=250;
+    public final int IMAGE_WIDTH=250;
+    public final int IMAGE_HEIGHT=250;
     public MainFrame() {
         this.setMainComponent();
         this.setMainPanel();
