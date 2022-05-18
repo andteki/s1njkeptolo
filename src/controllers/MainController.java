@@ -10,8 +10,8 @@ import views.MainFrame;
 public class MainController {
     MainFrame mainFrame;
     MainModel mainModel;
-    enum Irany {
-        ESZAK, DEL, KELET, NYUGAT, NO
+    enum Move {
+        UP, DOWN, LEFT, RIGHT, NO
     }
     public MainController() {
         this.mainFrame = new MainFrame();
@@ -35,11 +35,11 @@ public class MainController {
         int x = button.getLocation().x;
         int y = button.getLocation().y;
         System.out.println(x + " " + y);
-        Irany irany = Irany.NO;
+        Move move = Move.NO;
         if(x<750 && checkRight(x, y)) {
-            irany = Irany.KELET;
+            move = Move.RIGHT;
         }
-        System.out.println(irany);
+        System.out.println(move);
     }
     private boolean checkRight(int act_x, int act_y) {
         boolean direction_ok = true;
